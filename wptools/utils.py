@@ -252,7 +252,7 @@ def text_with_children(node):
                  *([tostring(c, with_tail=False),
                     c.tail] for c in node.getchildren())))
              + [node.tail])
-    return ''.join(filter(None, parts))
+    return ''.join(filter(lambda x: x and isinstance(x, str), parts))
 
 
 def template_to_text(tmpl):
